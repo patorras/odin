@@ -16,16 +16,12 @@
 }
 
 #image {
-    box-shadow: 1px 2px 5px black;
-    border-radius: 8px;
-    align-items: center;
-    width: 100%;
-}
-
-#img-caption {
-    align-items: center;
+    box-shadow: 1px 2px 5px black;https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js
     text-align: center;
     font-family: 'Nerko One', cursive;
+    max-width: 100%;
+    display: block;
+    height: auto;
 }
 
 #tribute-info {
