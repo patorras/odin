@@ -2,6 +2,7 @@
 <html>
 
     <head>
+        <link rel="stylesheet" href="style.css">
         <title>Survey Form</title>
     </head>
 
@@ -30,6 +31,7 @@
                         <label id="number-label" for="number">Age</label>
                         <input id="number" type="number" name="number" placeholder="Please enter your age" min="1" max="120"><br>
 
+                        <!--Country select-->
                         <label id="dropdown-label">Country</label>
                         <select id="dropdown" name="country">
                             <option value="Afganistan">Afghanistan</option>
@@ -280,11 +282,36 @@
                             <option value="Zimbabwe">Zimbabwe</option>
                          </select><br>
 
-                        <label>Please let us know your programing experience</label><br>
-                        <input type="radio" >No Experience</input>
-                        <input type="radio">Novice</input>
-                        <input type="radio">Some Experience</input>
-                        <input type="radio">Jedi</input>
+                         <!--Radio buttons-->
+                        <p>Please let us know your programing experience</p><br>
+                        <input type="radio" value="no-experience" name="experience">
+                        <label for="no-experience">No Experience</label>
+                        <input type="radio" value="novice" name="experience">
+                        <label for="novice">Novice</label>
+                        <input type="radio" value="experienced" name="experience">
+                        <label for="experienced">Experienced</label>
+                        <input type="radio" value="jedi" name="experience"> 
+                        <label for="jedi">Jedi</label><br>
+
+                        <!--Checkbox-->
+                        <p>Please let us know what is your goal when finish the course.</p>
+                        <input type="checkbox" value="Front-End" name="goal">
+                        <label for="Front-End">Front End Developer</label><br>
+                        <input type="checkbox" value="Back-End" name="goal">
+                        <label for="Back-End">Back End Developer</label><br>
+                        <input type="checkbox" value="Full-Stack" name="goal">
+                        <label for="Full-Stack">Full Stack Developer</label><br>
+                        <input type="checkbox" value="none" name="goal">
+                        <label for="none">None of the above</label><br>
+
+                        <!--textarea-->
+                        <label for="comments">Please let us know any aditional comments!</label>
+                        <textarea id="comments" name="comments" placeholder="Aditional comments" cols="50" rows="10"></textarea>
+
+                        <!--Button submit-->
+                        <input type="submit" value="Submit">
+
+
                     </form>
                 </div>
 

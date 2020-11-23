@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+body {
+    background-image: url("https://images.wallpaperscraft.com/image/code_lines_programming_130775_2560x1600.jpg");
+}
