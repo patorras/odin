@@ -2,6 +2,8 @@
 <html>
 
     <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Coda&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="style.css">
         <title>Survey Form</title>
     </head>
@@ -11,7 +13,7 @@
             <div class="container">
                 <!--title-->
                 <div>
-                    <h1 id="title">freeCodeCamp Survey Form</h1>
+                    <h1 id="title">FreeCodeCamp Survey Form</h1>
                 </div>
 
                 <!--simple description-->
@@ -23,10 +25,10 @@
                 <div>
                     <form id="survey-form">
                         <label id="name-label" for="name">Name</label>
-                        <input id="name" type="text" name="name" placeholder="Please enter your name"><br>
+                        <input id="name" type="text" name="name" placeholder="Please enter your name" required><br>
 
                         <label id="email-label" for="email">Email</label>
-                        <input id="email" type="email" name="email" placeholder="Please enter your email"><br>
+                        <input id="email" type="email" name="email" placeholder="Please enter your email" required><br>
 
                         <label id="number-label" for="number">Age</label>
                         <input id="number" type="number" name="number" placeholder="Please enter your age" min="1" max="120"><br>
@@ -283,33 +285,45 @@
                          </select><br>
 
                          <!--Radio buttons-->
-                        <p>Please let us know your programing experience</p><br>
-                        <input type="radio" value="no-experience" name="experience">
-                        <label for="no-experience">No Experience</label>
-                        <input type="radio" value="novice" name="experience">
-                        <label for="novice">Novice</label>
-                        <input type="radio" value="experienced" name="experience">
-                        <label for="experienced">Experienced</label>
-                        <input type="radio" value="jedi" name="experience"> 
-                        <label for="jedi">Jedi</label><br>
+                         <div class="radio-p">
+                            <p>Please let us know your programing experience</p><br>
+                         </div>
+
+                         <div class="radio">
+                            <input type="radio" value="no-experience" name="experience">
+                            <label for="no-experience">No Experience</label>
+                            <input type="radio" value="novice" name="experience">
+                            <label for="novice">Novice</label>
+                            <input type="radio" value="experienced" name="experience">
+                            <label for="experienced">Experienced</label>
+                            <input type="radio" value="jedi" name="experience"> 
+                            <label for="jedi">Jedi</label><br>
+                         </div>
 
                         <!--Checkbox-->
-                        <p>Please let us know what is your goal when finish the course.</p>
-                        <input type="checkbox" value="Front-End" name="goal">
-                        <label for="Front-End">Front End Developer</label><br>
-                        <input type="checkbox" value="Back-End" name="goal">
-                        <label for="Back-End">Back End Developer</label><br>
-                        <input type="checkbox" value="Full-Stack" name="goal">
-                        <label for="Full-Stack">Full Stack Developer</label><br>
-                        <input type="checkbox" value="none" name="goal">
-                        <label for="none">None of the above</label><br>
+                        <div class="checkbox-p">
+                            <p>Please let us know what is your goal when finish the course.</p>
+                        </div>
+
+                        <div class="checkbox">
+                            <input type="checkbox" value="Front-End" name="goal">
+                            <label for="Front-End">Front End Developer</label><br>
+                            <input type="checkbox" value="Back-End" name="goal">
+                            <label for="Back-End">Back End Developer</label><br>
+                            <input type="checkbox" value="Full-Stack" name="goal">
+                            <label for="Full-Stack">Full Stack Developer</label><br>
+                            <input type="checkbox" value="none" name="goal">
+                            <label for="none">None of the above</label><br>
+                        </div>
 
                         <!--textarea-->
-                        <label for="comments">Please let us know any aditional comments!</label>
-                        <textarea id="comments" name="comments" placeholder="Aditional comments" cols="50" rows="10"></textarea>
+                        <div class="text-area">
+                            <label for="comments">Please let us know any aditional comments!</label><br>
+                            <textarea id="comments" name="comments" placeholder="Aditional comments" cols="50" rows="4"></textarea><br>
+                        </div>
 
                         <!--Button submit-->
-                        <input type="submit" value="Submit">
+                        <input id="submit" type="submit" value="Submit">
 
 
                     </form>

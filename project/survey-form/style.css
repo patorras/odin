@@ -8,4 +8,55 @@
 
 body {
     background-image: url("https://images.wallpaperscraft.com/image/code_lines_programming_130775_2560x1600.jpg");
+    color: white;
+    font-family: 'Coda', cursive;
+    
+}
+
+h1{
+    font-family: 'Shrikhand', cursive;
+    font-size: 40px;
+}
+
+
+#description {
+    display: flex;
+    font-size: 20px;
+}
+
+#name-label, #name {
+    display: flex;
+}
+
+
+#email-label, #email {
+    display: flex;
+}
+
+#number-label, #number {
+    display: flex;
+}
+
+#dropdown-label, #dropdown {
+    display: flex;
+}
+
+.radio, .radio-p{
+    display: flex;
+}
+
+.text-area {
+    display: flex;
+    padding-top: 20px;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+#submit {
+    display: flex;
+    width: 100%;
+}
+
+.checkbox-p {
+    padding-top: 25px;
 }
