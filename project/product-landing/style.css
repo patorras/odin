@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background: linear-gradient(45.34deg, #FBB13C 5.66%, #FF7A72 48.62%, #FF7A72 94.35%)*/
+    background: linear-gradient(to right, rgb(241, 39, 17), rgb(245, 175, 25));
+}
+
+h1, h3 {
+    font-family: 'Yeseva One', cursive;
+}
+
+#header-img {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid;
+    border-style: double;
+    background: repeating-linear-gradient(135deg, rgb(201, 122, 81) 0px, rgb(201, 122, 81) 19px,rgb(179, 61, 37) 19px, rgb(179, 61, 37) 122px,rgb(223, 183, 125) 122px, rgb(223, 183, 125) 206px);
+    flex-wrap: wrap;
+    
+}
+
+.nav-link {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+}
+
+#product {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    
+}
