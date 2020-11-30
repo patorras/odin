@@ -11,25 +11,23 @@
     <body>
         <div class="container">
             <header id="header">
-                <h1>Medronho às Quintas</h1>
+                <h1 id="title">Medronho às Quintas</h1>
                 <!--logo-->
                 <img id="header-img" src="https://www.sulinformacao.pt/wp-content/uploads/2015/11/medronho.jpg" alt="Medronho">
                 
                 <!--NAV bar-->
                 <nav id="nav-bar">
-                    <ul>
-                        <li class="nav-link"><a href="#product">Products</a></li>
-                        <li class="nav-link"><a href="#how-to-order">How to order</a></li>
-                        <li class="nav-link"><a href="#location">Location</a></li>
-                    </ul>
-                    
+                    <a class="nav-link" href="#product">Products</a>
+                    <a class="nav-link" href="#how-to-order">How to order</a>
+                    <a class="nav-link" href="#location">Location</a>                    
                 </nav>
             </header>
 
-            <div>
-                <iframe id="video" src="https://www.youtube.com/embed/2fTKKP9mHaE" allowfullscreen></iframe> 
-            </div>
+            
+        
+        </div>
 
+        <div class="container">
             <!--Products-->
             <div id="product">
                 <div id="aguardente">
@@ -52,11 +50,14 @@
             <div id="how-to-order">
                 <h4>To order just enter your email, and we will contact you</h4>
                 <form id="form" action="https://www.freecodecamp.com/email-submit">
-                    <label for="email">Email</label>
                     <input id="email" type="email" placeholder="Please enter your email">
         
                     <input id="submit" type="submit" value="Submit">
                 </form>
+            </div>
+
+            <div>
+                <iframe id="video" src="https://www.youtube.com/embed/2fTKKP9mHaE" allowfullscreen></iframe> 
             </div>
 
             <div id="location">

@@ -35,4 +35,4 @@ page (use this mock URL: https://www.freecodecamp.com/email-submit).
 
 []User Story #14: My product landing page should have at least one media query.
 
-[]User Story #15: My product landing page should utilize CSS flexbox at least once.
+[x]User Story #15: My product landing page should utilize CSS flexbox at least once.
