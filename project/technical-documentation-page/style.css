@@ -1,16 +1,19 @@
 * {
-    marign: 0;
+    margin: 0;
+    line-height: 1.5;
 }
 
 h3 {
     text-align: center;
+    padding-bottom: 30px;
 }
 
 .container {
     display: flex;
-    flex-direction: column;
     background-color: gray;
     color: white;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 #nav-title {
@@ -18,6 +21,8 @@ h3 {
     border-bottom: solid 2px white;
     color: white;
     background-color: gray;
+    padding-left: 10px;
+    padding: 7px;
 }
 
 .nav-link{
@@ -27,16 +32,20 @@ h3 {
     border-bottom: solid 1px white;
     display: flex;
     color: white;
-
+    padding-left: 10px;
 }
 
 #nav-bar {
-    border-right: solid 2px white;
-    display: flex;
     text-align: left;
-    flex-direction: column;
-    width: 25%;
+    width: 270px;
     background-color: gray;
+    border-right: solid 2px white;
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
 }
 
 code {
@@ -47,10 +56,10 @@ code {
     font-size: 105%;
   }
 
-
-
   .main-section {
       display: flex;
       flex-direction: column;
+      padding-bottom: 50px;
+      margin-left: 300px;
       
   }
