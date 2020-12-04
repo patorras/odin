@@ -1,0 +1,56 @@
+* {
+    marign: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    color: white;
+}
+
+#nav-title {
+    font-size: 25px;
+    border-bottom: solid 2px white;
+    color: white;
+    background-color: gray;
+}
+
+.nav-link{
+    font-size: 17px;
+    line-height: 1.6;
+    text-decoration: none;
+    border-bottom: solid 1px white;
+    display: flex;
+    color: white;
+
+}
+
+#nav-bar {
+    border-right: solid 2px white;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    width: 25%;
+    background-color: gray;
+}
+
+code {
+    font-family: Consolas,"courier new";
+    color: crimson;
+    background-color: #f1f1f1;
+    padding: 2px;
+    font-size: 105%;
+  }
+
+
+
+  .main-section {
+      display: flex;
+      flex-direction: column;
+      
+  }
