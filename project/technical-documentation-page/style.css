@@ -12,40 +12,51 @@ h3 {
     display: flex;
     background-color: gray;
     color: white;
-    flex-wrap: wrap;
-    text-align: center;
+    flex-direction: column;
 }
 
-#nav-title {
-    font-size: 25px;
-    border-bottom: solid 2px white;
-    color: white;
-    background-color: gray;
-    padding-left: 10px;
-    padding: 7px;
+@media (min-width: 768px) {
+    #nav-title {
+        font-size: 23px;
+        border-bottom: solid 2px white;
+        color: white;
+        background-color: gray;
+        padding-left: 10px;
+        padding: 5px;
+    
+    }
 }
 
-.nav-link{
-    font-size: 17px;
-    line-height: 1.6;
-    text-decoration: none;
-    border-bottom: solid 1px white;
-    display: flex;
-    color: white;
-    padding-left: 10px;
+@media (min-width: 768px) {
+    .nav-link{
+        font-size: 17px;
+        line-height: 1.2;
+        text-decoration: none;
+        border-bottom: solid 1px white;
+        display: flex;
+        color: white;
+        padding-left: 10px;
+        padding-bottom: 11px;
+        flex-direction: column;
+        display: flex;
+        height: 30px;
+        text-align: left;
+    }
 }
 
-#nav-bar {
-    text-align: left;
-    width: 270px;
-    background-color: gray;
-    border-right: solid 2px white;
-    cursor: pointer;
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
+@media (min-width: 768px) {
+    #nav-bar {
+        text-align: left;
+        width: 270px;
+        background-color: gray;
+        border-right: solid 2px white;
+        cursor: pointer;
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+    }
 }
 
 code {
@@ -59,7 +70,52 @@ code {
   .main-section {
       display: flex;
       flex-direction: column;
-      padding-bottom: 50px;
+      padding: 50px;
       margin-left: 300px;
-      
+
   }
+
+  #intro {
+      padding: 10px;
+  }
+
+
+
+
+
+@media (max-width: 768px) {
+    #nav-links{
+        display: flex;
+        text-decoration: none;
+        flex-wrap: wrap;
+        color: white;
+        align-content: center;
+        background-color: green;
+        height: 250px;
+        position: fixed;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .main-section {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+        padding-top: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+     a {
+        flex: 1;
+        text-align: center;
+        margin: 0.25em;
+        padding: 0.25em;
+        border: 1px solid #ddd;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+}
