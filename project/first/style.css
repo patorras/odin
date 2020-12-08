@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+/*creates the container, with a width of 85 so the items are not at the edges, and gives a max-width as well*/
+.container {
+    width: 85%;
+    margin: o auto;
+    max-width: 1080px;
+}
+
+/*adds spacing to the elemets that have a direct sibling above it*/
+.spacing > * > * {
+    margin-top: 2rem;
+}
+
+/*creates a button using a <a> tag*/
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    padding: .5em 1.25em;
+    background: blue;
+    border-radius: .25em;
+    /*creates a animation in the button*/
+    transition:
+        transform 250ms ease-out,
+        opacity 250ms linear;
+}
+
+/*transforms the button when hover with the mouse*/
+.btn:hover,
+.btn:focus {
+    transform: scale(1.1);
+    opacity: .9;
+}
+
+.title {
+    font-size: 4rem;
+    /*dynamic increases and decreses the font size*/
+    font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+header {
+    text-align: center;
+    padding: 15em 0;
+    background: #222;
+    background: url("https://www.downthelinesurf.co.uk/media/catalog/product/cache/1/image/1000x/9df78eab33525d08d6e5fb8d27136e95/n/m/nmd-element-red-red_1_.jpg"),
+        radial-gradient(#444, #111);
+    background-blend-mode: multiply;
+    color: #fff;
+}
+
