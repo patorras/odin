@@ -45,7 +45,7 @@ h3 {
 }
 
 @media (min-width: 768px) {
-    #nav-bar {
+    #navbar {
         text-align: left;
         width: 270px;
         background-color: gray;
@@ -83,7 +83,7 @@ code {
 
 
   @media (max-width: 768px) {
-    #nav-bar{
+    #navbar{
         position: fixed;
         background-color: rgb(71, 14, 124);
     }
