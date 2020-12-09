@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#navbar {
+    display: flex;
+    background-color: red;
+    flex: 1;
+    text-transform: uppercase;
+    justify-content: space-around;
+    
+}
+
+#navbar > a {
+    text-decoration: none;
+    color: white;
+    height: 44px;
+    font-size: 20px;
+}
+
+#welcome-section {
+    display: flex;
+    background-color: green;
+    flex: 2;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#projects {
+    display: flex;
+    flex: 3;
+    background-color: blue;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact {
+    display: flex;
+    flex: 4;
+    background-color: orchid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
