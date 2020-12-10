@@ -5,10 +5,6 @@
 
 .container {
     display: flex;
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-
 }
 
 #navbar {
@@ -17,7 +13,10 @@
     flex: 1;
     text-transform: uppercase;
     justify-content: space-around;
-    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 #navbar > a {
@@ -28,21 +27,25 @@
 }
 
 #welcome-section {
-    display: flex;
     background-color: green;
     flex: 2;
+    padding-top: 50%;
+}
+
+#welcome-section > h1 {
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    bottom: 50%;
+    right: 45%;
 }
 
 #projects {
-    display: flex;
+    display: grid;
     flex: 3;
     background-color: blue;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    padding-top: 50%;
+    
 }
 
 #contact {
