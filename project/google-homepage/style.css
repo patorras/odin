@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    line-height: 1.6;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    display: flex;
+    background-color: greenyellow;
+    justify-content: space-between;
+    justify-content: end;
+    
+}
+
+
+li {
+    list-style: none;
+    display: inline;
+    float: left;
+    padding: 8px;
+}
+
+#user-logo {
+    border-radius: 50%;
+}
+
+
+#google-image {
+    display: flex;
+    background-color: aqua;
+    height: 32vh;
+    justify-content: center;
+}
+
+#google {
+    margin-top: 10%;
+}
+
+#searchbox {
+    background-color: blueviolet;
+    text-align: center;
+    height: 20vh;
+}
+
+#searchbox-input {
+    width: 25%;
+    border-radius: 15px;
+    border: 1px solid grey;
+    height: 40px;
+}
