@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+html, body {
+    height: 100%;   
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -11,10 +15,8 @@
 
 #header {
     display: flex;
-    background-color: greenyellow;
     justify-content: space-between;
     justify-content: end;
-    
 }
 
 
@@ -32,7 +34,6 @@ li {
 
 #google-image {
     display: flex;
-    background-color: aqua;
     height: 32vh;
     justify-content: center;
 }
@@ -42,9 +43,10 @@ li {
 }
 
 #searchbox {
-    background-color: blueviolet;
+    display: block;
     text-align: center;
     height: 20vh;
+    margin-bottom: 15%;
 }
 
 #searchbox-input {
@@ -52,4 +54,31 @@ li {
     border-radius: 15px;
     border: 1px solid grey;
     height: 40px;
+    margin-top: 10px;
+    display: flex;
+    margin-left: 38%;
+    margin-bottom: 10px;
 }
+
+p {
+    margin-top: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightgray;
+
+}
+
+#footer-portugal {
+    border-bottom: 1px solid;
+    width: 100%;
+}
+
+#footer-right, #footer-left {
+    display: flex;
+    height: 6vh;
+}
+
+
