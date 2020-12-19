@@ -1,6 +1,5 @@
 * {
     margin: 0;
-    line-height: 1.6;
     padding: 0;
 }
 
@@ -22,9 +21,11 @@ html, body {
 
 li {
     list-style: none;
-    display: inline;
-    float: left;
-    padding: 8px;
+    display: inline-block;
+    line-height: 24px;
+    padding: 11px;
+    vertical-align: middle;
+    font-family: arial, sans-serif;
 }
 
 #user-logo {
@@ -57,28 +58,54 @@ li {
     margin-top: 10px;
     display: flex;
     margin-left: 38%;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+#lucky, #search {    
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    padding: 0 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    color: #202124;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 27px;
+    height: 36px;
 }
 
 p {
     margin-top: 20px;
+    font-size: small;
+    font-family: arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
 }
 
 .footer {
     display: flex;
     justify-content: space-between;
-    background-color: lightgray;
-
+    background-color: #f2f2f2;
+    white-space: nowrap;
 }
 
 #footer-portugal {
     border-bottom: 1px solid;
     width: 100%;
+    font-size: 15px;
+    border-bottom: 1px solid #dadce0;
+    color: #70757a; 
 }
 
 #footer-right, #footer-left {
-    display: flex;
-    height: 6vh;
+    font-size: 14px;
+    height: 100%;
+    color: #70757a;
 }
 
 
