@@ -2,69 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style_result.css">
     <title>Search Results</title>
 </head>
 <body>
-    <div>
-        <img src="https://www.google.com/logos/doodles/2020/celebrating-winter-2020-and-the-double-planet-sighting-northern-hemisphere-6753651837108654.2-s.png">
+    <div class="container">
+        <div id="top">
+            <img id="img-google" src="https://www.google.com/logos/doodles/2020/celebrating-winter-2020-and-the-double-planet-sighting-northern-hemisphere-6753651837108654.2-s.png">
 
-        <form> 
-            <input type="text" placeholder="build this webpage">
-        </form>
+            <form id="form"> 
+                <input type="text" placeholder="build this webpage">
+            </form>
 
-        <img id="user-logo" src="https://lh3.googleusercontent.com/ogw/ADGmqu-rMHykKHMGv2ugMnA5DUXf4VSgN0UXXIYRB9H4=s32-c-mo" alt="Name">
+            <img id="user-logo" src="https://lh3.googleusercontent.com/ogw/ADGmqu-rMHykKHMGv2ugMnA5DUXf4VSgN0UXXIYRB9H4=s32-c-mo" alt="Name">
+    
+        </div>
     </div>
 
-    <div>
-        <ul>
-            <li>All</li>
-            <li>Newa</li>
-            <li>Maps</li>
-            <li>Videos</li>
-            <li>Images</li>
-            <li>More</li>
-        </ul>
+    <div class="container">
+        <nav id ="navigation">
+            <ul id=nav-left>
+                <li>All</li>
+                <li>Newa</li>
+                <li>Maps</li>
+                <li>Videos</li>
+                <li>Images</li>
+                <li>More</li>
+            </ul>
 
-        <ul>
-            <li>Settings</li>
-            <li>Tools</li>
-        </ul>
+            <ul id="nav-right">
+                <li>Settings</li>
+                <li>Tools</li>
+            </ul>
+        </nav>
     </div>
 
     <main>
-        <div>
+        <div class="container">
             <p>About 115,000,000 results (0.58 seconds) </p>
         </div>
 
-        <div>
-            <p>victor-lf.github.io > google-search-results</p>
-            <h3>build this webpage - GitHub Pages</h3>
-            <p>build this webpage. https://benjdelt.github.io/google-results/. With zero coding experience, artist</p>
-            <p>building 180 webpages in 180 days ...</p>
+        <div class="container">
+            <article class="result">
+                <p>victor-lf.github.io > google-search-results</p>
+                <h3>build this webpage - GitHub Pages</h3>
+                <p>build this webpage. https://benjdelt.github.io/google-results/. With zero coding experience, artist</p>
+                <p>building 180 webpages in 180 days ...</p>
+            </article>
         </div>
 
-        <div>
-            <p>christine-27.github.io > google-homepage</p>
-            <h3>build this webpage - GitHub Pages</h3>
-            <p>With zero coding experience, artist building 180 webpages . ... days ago, having never done</p>
-            <p>any programming in her life, Jennifer Dewalt built her first webpage.</p>
+        <div class="container">
+            <article class="result">
+                <p>christine-27.github.io > google-homepage</p>
+                <h3>build this webpage - GitHub Pages</h3>
+                <p>With zero coding experience, artist building 180 webpages . ... days ago, having never done</p>
+                <p>any programming in her life, Jennifer Dewalt built her first webpage.</p>
+            </article>
         </div>
 
-        <div>
-            <p>www.websitebuilderexpert.com > building-websites</p>
-            <h3>How to Build a Website 2020 | A Step-by-Step Beginner's Guide...</h3>
-            <p><span class="search-date">4 days ago —</span> Anyone can build a website with the right tools - and the right guide! We'll show </p>
-            <p>you how to make yours in just 9 steps.</p>
+        <div class="container">
+            <article class="result">
+                <p>www.websitebuilderexpert.com > building-websites</p>
+                <h3>How to Build a Website 2020 | A Step-by-Step Beginner's Guide...</h3>
+                <p><span class="search-date">4 days ago —</span> Anyone can build a website with the right tools - and the right guide! We'll show </p>
+                <p>you how to make yours in just 9 steps.</p>
+            </article>
         </div>
 
-        <div>
-            <p>www.pcmsg.com...> Web Hosting</p>
-            <h3>How to create a Website | PCMag</h3>
-            <p>You can use an online service to create web pages, or build it offline using a desktop software </p>
-            <p>tool. Or, if you're a coding dynamo, use a plain text editor to create a ...</p>
+        <div class="container">
+            <article class="result">
+                <p>www.pcmsg.com...> Web Hosting</p>
+                <h3>How to create a Website | PCMag</h3>
+                <p>You can use an online service to create web pages, or build it offline using a desktop software </p>
+                <p>tool. Or, if you're a coding dynamo, use a plain text editor to create a ...</p>
+            </article>
         </div>
 
-        <div>
+        <div class="container">
             <h4>People also ask</h4>
             <ul>
                 <li><h5>How can i create my own webpage?</h5></li>
