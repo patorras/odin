@@ -12,6 +12,9 @@
 .result {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    margin-left: 9.5%;
+    padding-bottom: 2%;
 }
 
 #top {
@@ -100,4 +103,49 @@ li {
     width: 100%;
     margin-left: 9.5%;
 }
+
+.viktor {
+    color: #000000;
+    font-family: Google Sans,arial,sans-serif;
+    font-size: 14px;
+}
+
+p {
+    color: #70757a;
+    font-family: Google Sans,arial,sans-serif;
+    font-size: 14px;
+}
+
+#people {
+    display: flex;
+    flex-direction: column;
+    margin-left: 9%;
+    padding-bottom: 2%;
+}
+
+#people-list {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.people-item {
+    display: flex;
+    border-bottom: 1px solid #ebebeb;
+    font-family: Google Sans,arial,sans-serif;
+    font-size: 18px;
+    color: #202124;
+    font-weight: normal;
+}
+
+#people-h4 {
+    line-height: 24px;
+    border-bottom: 1px solid #ebebeb;
+    padding: 11px;
+    color: #202124;
+    font-size: 22px;
+    font-weight: normal;
+    font-family: arial,sans-serif;
+}
+
 
