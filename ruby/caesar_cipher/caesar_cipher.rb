@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 def caesar_cipher(string, number_shift)
 
     # then converted to a number ascii  
@@ -31,11 +29,6 @@ def caesar_cipher(string, number_shift)
    puts ascii_numbers
 
 
-
-
-    # Don’t forget to wrap from z to a.
-
-    # Don’t forget to keep the same case.
 end
 
 caesar_cipher("Pedro difjeidnewj", 5)
