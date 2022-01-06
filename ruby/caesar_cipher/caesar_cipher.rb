@@ -2,11 +2,6 @@ require 'pry-byebug'
 
 def caesar_cipher(string, number_shift)
 
-    # how to convert a string into a number. -> number.to_s
-    # test string.ord lopping in every charachter
-
-    # i need to pass a string
-
     # then converted to a number ascii  
     # change the char number using the number_shift 
    ascii_numbers = string.bytes.map do |number|
@@ -31,7 +26,6 @@ def caesar_cipher(string, number_shift)
    end
    ascii_numbers = ascii_numbers.map {|letter| letter.chr}
 
-    # 65 A - 90 Z     97 a - 122 z
 
    ascii_numbers = ascii_numbers.join('')
    puts ascii_numbers
@@ -44,5 +38,5 @@ def caesar_cipher(string, number_shift)
     # Don’t forget to keep the same case.
 end
 
-caesar_cipher("Zas dfsdfsdfs!", 5)
+caesar_cipher("Pedro difjeidnewj", 5)
  
