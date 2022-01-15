@@ -13,9 +13,6 @@ def substrings(word, array)
     word = word.split(" ")
 
 
-
-    
-    # use include? like array[0].include?(word)
     word.each do |letter|
         array.each do |string|
             if letter.downcase.include?(string) 
@@ -26,20 +23,12 @@ def substrings(word, array)
                     hash[string] += 1
                 end
 
-                
-
-            
             end
-
-            
+        
         end
     end
     
-
     puts hash.sort.to_h
-    
-
-
 
 end
 
