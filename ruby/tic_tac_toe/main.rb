@@ -17,7 +17,11 @@ class Board
   ## update board with play
   def self.board_update(number, symbol)
     
-    @@board_toe[0][1] = symbol
+    @@board_toe.each do |board|
+      # finds the number that the player choose and substitute by his symbol
+      board.gsub!(number.to_s, symbol.to_s)
+    end
+
 
   end
 end
@@ -61,6 +65,7 @@ class Play
   
   attr_accessor :number
   @@number = ""
+
   def self.what_move?(player)
     puts "#{player} what is your move, please choose a number?"
     @@number = gets.to_i
