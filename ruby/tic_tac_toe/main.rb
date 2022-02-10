@@ -21,8 +21,21 @@ class Board
       # finds the number that the player choose and substitute by his symbol
       board.gsub!(number.to_s, symbol.to_s)
     end
+  end
 
-
+  # checks if board has a winner
+  def self.winner?()
+    # use a case scenario
+    case @@board_toe
+      when ["|x|x|x|", "|4|5|6|", "|7|8|9|"]
+        true
+      when ["|1|2|3|", "|x|x|x|", "|7|8|9|"]
+        true
+      when ["|1|2|3|", "|4|5|6|", "|x|x|x|"]
+        true
+      else
+        false
+    end
   end
 end
 
@@ -64,11 +77,17 @@ end
 class Play
   
   attr_accessor :number
-  @@number = ""
+  @@number = 0
 
   def self.what_move?(player)
-    puts "#{player} what is your move, please choose a number?"
-    @@number = gets.to_i
+    
+
+    while @@number < 1 || @@number > 9
+      puts "#{player} what is your move, please choose a number?"
+      puts "Please note that you need to choose a number between 1 and 9"
+      @@number = gets.to_i
+    end
+    
   end
 
 
@@ -79,13 +98,55 @@ class Play
 end
 
 
+#############################################################################################
+#Creates player 1
+puts "Hello, first we will pick the player name and symbol to play"
+puts "Please let us know your name:"
+player1_name = gets.chomp
+player1 = Player.new(player1_name)
+
+# player 1 chooses his symbol
+player1_symbol = player1.player_symbol()
+
+# Creates player 2 
+puts ""
+puts "Please let us know the name of the second player"
+player2_name = gets.chomp
+player2 = Player.new(player2_name)
+
+# player 2 is assign the other symbol
+if player1_symbol == "x"
+  player2_symbol = "o"
+else
+  player2_symbol = "x"
+end
+puts "Since #{player1_name} choose symbol:#{player1_symbol}, your symbol will be #{player2_symbol}"
+puts
+
+
+# prints the board before the first move
 Board.print_board()
-player1 = Player.new("Pedro")
-puts player1.name
-puts player1.player_score("Pedro")
+
+
+# now i need to create a loop asking by turn the plays of each player, 
+# after each play check if a player won, by running winner?()
+
+# What is the move of player 1
 puts Play.what_move?(player1.name)
 
-puts player1.symbol
-Board.board_update(Play.number_choosing, player1.player_symbol())
-
+# apply player 1 move to the board game
+Board.board_update(Play.number_choosing, player1_symbol)
+# prints board game
 Board.print_board()
+
+
+
+
+
+
+# prints the score of the player 1
+puts player1.player_score(player1_name)
+
+
+
+
