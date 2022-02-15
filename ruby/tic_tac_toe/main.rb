@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 # board design
 class Board
 
@@ -7,7 +9,10 @@ class Board
     # class variable, board
     @@board_toe = ["|1|2|3|", "|4|5|6|", "|7|8|9|"]
 
-    
+  # just returns the array value, in other words the board
+  def self.board_value()
+    return @@board_toe
+  end
 
   def self.print_board()
      
@@ -24,18 +29,23 @@ class Board
   end
 
   # checks if board has a winner
-  def self.winner?()
+  def self.winner?(board, symbol)
     # use a case scenario
-    case @@board_toe
-      when ["|x|x|x|", "|4|5|6|", "|7|8|9|"]
-        true
-      when ["|1|2|3|", "|x|x|x|", "|7|8|9|"]
-        true
-      when ["|1|2|3|", "|4|5|6|", "|x|x|x|"]
-        true
-      else
-        false
+    if (board[0][1]==symbol && board[0][3]==symbol && board[0][5]==symbol) || #Row1
+      (board[1][1]==symbol && board[1][3]==symbol && board[1][5]==symbol) ||  #Row2
+      (board[2][1]==symbol && board[2][3]==symbol && board[2][5]==symbol) ||  #Row3
+      (board[0][1]==symbol && board[1][1]==symbol && board[2][1]==symbol) ||  #column1
+      (board[0][3]==symbol && board[1][3]==symbol && board[2][3]==symbol) || #column2
+      (board[0][5]==symbol && board[1][5]==symbol && board[2][5]==symbol) || #column3
+      (board[0][1]==symbol && board[1][3]==symbol && board[2][5]==symbol) || #Dia1
+      (board[0][5]==symbol && board[1][3]==symbol && board[2][1]==symbol)    #Dia2
+
+      return true
+
+    else
+      return false
     end
+
   end
 end
 
@@ -80,7 +90,7 @@ class Play
   @@number = 0
 
   def self.what_move?(player)
-    
+    @@number = 0
 
     while @@number < 1 || @@number > 9
       puts "#{player} what is your move, please choose a number?"
@@ -92,7 +102,7 @@ class Play
 
 
   def self.number_choosing
-    @@number
+    return @@number
   end
 
 end
@@ -123,21 +133,45 @@ end
 puts "Since #{player1_name} choose symbol:#{player1_symbol}, your symbol will be #{player2_symbol}"
 puts
 
+# check if we have a winner after the play
+while 1 
+  
+  # prints the board before the first move
+  Board.print_board()
 
-# prints the board before the first move
-Board.print_board()
 
+  # now i need to create a loop asking by turn the plays of each player, 
+  # after each play check if a player won, by running winner?()
 
-# now i need to create a loop asking by turn the plays of each player, 
-# after each play check if a player won, by running winner?()
+  # What is the move of player 1
+  Play.what_move?(player1.name)
 
-# What is the move of player 1
-puts Play.what_move?(player1.name)
+  # apply player 1 move to the board game
+  Board.board_update(Play.number_choosing, player1_symbol)
+  # prints board game
+  Board.print_board()
 
-# apply player 1 move to the board game
-Board.board_update(Play.number_choosing, player1_symbol)
-# prints board game
-Board.print_board()
+  if Board.winner?(Board.board_value(), player1_symbol) == true 
+    puts "#{player1_name} is the Winner of this round"
+
+    break
+  end
+  
+
+  # What is the move of player 2
+  Play.what_move?(player2.name)
+
+  # apply player 2 move to the board game
+  Board.board_update(Play.number_choosing, player2_symbol)
+  # prints board game
+  Board.print_board()
+  puts "*****************************************************"
+
+  if Board.winner?(Board.board_value(), player2_symbol) == true 
+    break
+  end
+
+end
 
 
 
