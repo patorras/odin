@@ -47,6 +47,12 @@ class Board
     end
 
   end
+
+
+  # restart board
+  def self.restart_board()
+    @@board_toe = ["|1|2|3|", "|4|5|6|", "|7|8|9|"]
+  end
 end
 
 
@@ -86,17 +92,19 @@ end
 # move, 
 class Play
   
-  attr_accessor :number
+  attr_accessor :number, :check_if_number_was_choosen
   @@number = 0
+  @@check_if_number_was_choosen = []
 
   def self.what_move?(player)
     @@number = 0
 
-    while @@number < 1 || @@number > 9
+    while @@number < 1 || @@number > 9 
       puts "#{player} what is your move, please choose a number?"
       puts "Please note that you need to choose a number between 1 and 9"
       @@number = gets.to_i
-    end
+
+    end 
     
   end
 
@@ -141,7 +149,7 @@ while 1
 
 
   # now i need to create a loop asking by turn the plays of each player, 
-  # after each play check if a player won, by running winner?()
+  
 
   # What is the move of player 1
   Play.what_move?(player1.name)
@@ -151,6 +159,7 @@ while 1
   # prints board game
   Board.print_board()
 
+  # after each play check if a player won, by running winner?()
   if Board.winner?(Board.board_value(), player1_symbol) == true 
     puts "#{player1_name} is the Winner of this round"
 
@@ -167,6 +176,7 @@ while 1
   Board.print_board()
   puts "*****************************************************"
 
+  # after each play check if a player won, by running winner?()
   if Board.winner?(Board.board_value(), player2_symbol) == true 
     break
   end
