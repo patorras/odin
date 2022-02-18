@@ -99,15 +99,26 @@ class Play
   def self.what_move?(player)
     @@number = 0
 
-    while @@number < 1 || @@number > 9 
-      puts "#{player} what is your move, please choose a number?"
-      puts "Please note that you need to choose a number between 1 and 9"
-      @@number = gets.to_i
-
-    end 
+      while @@number < 1 || @@number > 9 
+        puts "#{player} what is your move, please choose a number?"
+        puts "Please note that you need to choose a number between 1 and 9"
+        @@number = gets.to_i
+      end 
     
   end
 
+  def self.check_if_number_was_choosen(array, number)
+    if array[0].include?(number.to_s)
+      true
+    elsif array[1].include?(number.to_s)
+      true
+    elsif array[2].include?(number.to_s)  
+      true
+    else
+      false
+    end
+
+  end
 
   def self.number_choosing
     return @@number
@@ -152,7 +163,16 @@ while 1
   
 
   # What is the move of player 1
+
   Play.what_move?(player1.name)
+
+  ##### try with a while or until loop ########################################################
+  if Play.check_if_number_was_choosen(Board.board_value(), Play.number_choosing)
+    puts ""
+  else
+    Play.what_move?(player1.name)
+  end
+ 
 
   # apply player 1 move to the board game
   Board.board_update(Play.number_choosing, player1_symbol)
