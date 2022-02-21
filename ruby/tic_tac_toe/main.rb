@@ -45,7 +45,17 @@ class Board
     else
       return false
     end
+  end
 
+
+  def self.check_draw(board)
+    if (board[0].include?("1"||"2"||"3")) || 
+       (board[1].include?("4"||"5"||"6")) ||
+       (board[2].include?("7"||"8"||"9"))
+      return true
+    else
+      return false
+    end
   end
 
 
@@ -85,7 +95,6 @@ class Player
     end
     return @symbol
   end
-
 end
 
 
@@ -104,9 +113,9 @@ class Play
         puts "Please note that you need to choose a number between 1 and 9"
         @@number = gets.to_i
       end 
-    
   end
 
+  # checks if number was already choosen, so if in the board the number does not exists, it was laready choosen
   def self.check_if_number_was_choosen(array, number)
     if array[0].include?(number.to_s) || array[1].include?(number.to_s) || array[2].include?(number.to_s)  
       true
@@ -119,7 +128,6 @@ class Play
   def self.number_choosing
     return @@number
   end
-
 end
 
 
@@ -152,20 +160,16 @@ puts
 while 1 
   
   # prints the board before the first move
-  Board.print_board()
-
-
-  # now i need to create a loop asking by turn the plays of each player, 
-  
+  Board.print_board()  
 
   # What is the move of player 1
-
-  #Play.what_move?(player1.name)
-
   ##### try with a while or until loop checks if the number was chosen already
   until Play.check_if_number_was_choosen(Board.board_value(), Play.number_choosing)
     puts ""
     Play.what_move?(player1.name)
+    if Play.check_if_number_was_choosen(Board.board_value(), Play.number_choosing) == false
+      puts "Please choose a different number, #{Play.number_choosing} was already choosen!"
+    end
   end
  
 
@@ -180,12 +184,22 @@ while 1
 
     break
   end
-  
+
+  # after each play checks if we have a draw
+  if Board.check_draw(Board.board_value()) == false
+    puts "We have a draw!"
+
+    break
+  end
+
 
   # What is the move of player 2, checks if the number was chosen already
   until Play.check_if_number_was_choosen(Board.board_value(), Play.number_choosing)
     puts ""
     Play.what_move?(player2.name)
+    if Play.check_if_number_was_choosen(Board.board_value(), Play.number_choosing) == false
+      puts "Please choose a different number, #{Play.number_choosing} was already choosen!"
+    end
   end
 
   # apply player 2 move to the board game
@@ -198,12 +212,7 @@ while 1
   if Board.winner?(Board.board_value(), player2_symbol) == true 
     break
   end
-
 end
-
-
-
-
 
 
 # prints the score of the player 1
