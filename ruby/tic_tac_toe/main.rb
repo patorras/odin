@@ -45,6 +45,7 @@ class Board
     else
       return false
     end
+    
   end
 
 
@@ -73,13 +74,17 @@ class Player
 
   def initialize(name)
     @name = name
-    @score = score
+    @score = 0
     @symbol = symbol
   end
   
   # player score
-  def player_score(name)
-    @score = 0
+  def player_score_counter(score)
+    @score += score
+  end
+
+  def player_score
+    return @score 
   end
 
   # player symbol
@@ -128,6 +133,10 @@ class Play
   def self.number_choosing
     return @@number
   end
+
+  def self.reset_play()
+    @@number = 0
+  end
 end
 
 
@@ -157,7 +166,7 @@ puts "Since #{player1_name} choose symbol:#{player1_symbol}, your symbol will be
 puts
 
 # check if we have a winner after the play
-while 1 
+while Board.winner?(Board.board_value(), player1_symbol) == false || Board.winner?(Board.board_value(), player2_symbol) == false 
   
   # prints the board before the first move
   Board.print_board()  
@@ -182,7 +191,26 @@ while 1
   if Board.winner?(Board.board_value(), player1_symbol) == true 
     puts "#{player1_name} is the Winner of this round"
 
-    break
+
+    # increases score by 1
+    player1.player_score_counter(1)
+
+    # prints the score 
+    puts "The score is now #{player1.player_score} for #{player1_name} and #{player2.player_score} for #{player2_name}"
+
+    # asks if you want to play another game after a victory
+    puts "Do you wish to play another game?"
+    puts "If you do press y"
+    continue = gets.chomp
+    if continue == "y"
+      # restarts board, and the player play
+      Board.restart_board()
+      Play.reset_play()
+      next
+    else
+      break
+    end
+    #break
   end
 
   # after each play checks if we have a draw
@@ -210,13 +238,32 @@ while 1
 
   # after each play check if a player won, by running winner?()
   if Board.winner?(Board.board_value(), player2_symbol) == true 
-    break
+    puts "#{player2_name} is the Winner of this round"
+
+
+    # increases score by 1
+    player2.player_score_counter(1)
+
+    # prints the score 
+    puts "The score is now #{player2.player_score} for #{player2_name} and #{player1.player_score} for #{player1_name}"
+
+    # asks if you want to play another game after a victory
+    puts "Do you wish to play another game?"
+    puts "If you do press y"
+    continue = gets.chomp
+    if continue == "y"
+      # restarts board, and the player play
+      Board.restart_board()
+      Play.reset_play()
+      next
+    else
+      break
+    end
+    #break
   end
 end
 
 
-# prints the score of the player 1
-puts player1.player_score(player1_name)
 
 
 
