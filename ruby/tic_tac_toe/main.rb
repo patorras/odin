@@ -50,9 +50,9 @@ class Board
 
 
   def self.check_draw(board)
-    if (board[0].include?("1"||"2"||"3")) || 
-       (board[1].include?("4"||"5"||"6")) ||
-       (board[2].include?("7"||"8"||"9"))
+    if (board[0].include?("1")) || (board[0].include?("2")) || (board[0].include?("3")) || 
+       (board[1].include?("4")) || (board[1].include?("5")) || (board[1].include?("6")) ||
+       (board[2].include?("7")) || (board[2].include?("8")) || (board[2].include?("9"))
       return true
     else
       return false
