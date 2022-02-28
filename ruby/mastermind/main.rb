@@ -24,3 +24,80 @@ starting with you guessing the computer’s random code.
     position, its next guess will need to include that color somewhere.
     
 =end
+
+
+
+class Computer
+
+end
+
+
+class Player
+    
+    # The code BREAKER will have 12 turns to decipher the code that the MAKER has created.
+end
+
+
+class Board
+    
+    @@board_design = [[1234],
+                      [1234],
+                      [1234],
+                      [1234],
+                      [1234],
+                      [1234],
+                      [1234],
+                      [1234],
+                      [1234],
+                      [1234],
+                      [1234],
+                      [1234]]
+
+end
+
+class Code
+    # The code consists of 4 digits, each digit ranging from 1-6.
+    @@secret_code = []
+
+    def self.choosing_secret_code()
+        digit = 0
+        puts "Please choose the secret code, it must be 4 digits ranging from 1 to 6"
+        puts "please inser the first digit"
+
+        # runs until we have a 4 key code 
+        while @@secret_code.size < 4
+            puts "please insert a digit, please note that it need to be from 1 to 6" 
+            digit = gets.chomp.to_i
+
+            # checks if the user inserted a number in the range of 1 to 6, if he did, add to the array
+            if digit > 0 && digit < 7 
+                @@secret_code << digit
+            else
+                puts "the #{digit} is not in the range of 1 to 6"
+            end
+        end
+    end
+end
+
+
+
+# maybe use a array of numbers for the code
+
+puts "Hello player, welcome to mega mastermind"
+puts "Do you want to be the secret code setter, and let the computer discover your code,"
+puts "or are you a super human and will discover the secret code set by the computer"
+puts "Please just write 'code' for setting the code or 'breaker' for let the computer set the code."
+choice = ""
+until choice == "code" || choice == "breaker"
+    choice = gets.chomp
+    if choice == "code"
+        # will let player chose the secret code
+        Code.choosing_secret_code()
+    elsif choice == "breaker"
+        puts "You will never find out my secret code ahahahahahaha"
+    else
+        puts "I do not understand your choice, please insert code to set the code, or breaker to break the code"
+    end
+end
+# You first choose to be either the code MAKER or code BREAKER.
+
