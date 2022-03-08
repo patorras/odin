@@ -35,6 +35,51 @@ class Computer
         return random_array
     end
 
+
+    def self.play(player_secret_code)
+
+        # i want to check if i can create random numbers, and start to elimenate the options i dont want
+
+        # variable to keep the correct numbers in the correct position
+        correct_guess = [nil, nil, nil, nil]
+        computer_guess = [1,1,1,1]
+
+        for x in 0..11 do 
+
+            for i in 0..3 do
+                # this would simple check if one of my guesses is in the code, do not provide feedback on position
+                if player_secret_code.include?(computer_guess[i])
+                    
+                    # would compare if the position and number is correct
+                    if player_secret_code[i] == computer_guess[i] 
+                        puts "#{computer_guess} #{computer_guess[i]} exists in the code and is in the correct position" 
+                        correct_guess[i] = computer_guess[i]
+
+                    # check if the number exists in the wrong position 
+                    else
+                        puts "#{computer_guess} #{computer_guess[i]} exists in the code but is NOT in the correct position"
+                        
+                        computer_guess[i] = computer_guess[i] + 1 
+                    
+                        
+                    end
+                else
+                    puts "#{computer_guess} #{computer_guess[i]} does not exist in the code"
+                    ########### here i need to eliminate the options that do not exist from the rand
+                    computer_guess[i] = computer_guess[i] + 1
+                end
+            end
+
+            if correct_guess.include?(nil) == false
+                puts "You suck the computer guessed your code, it was #{correct_guess}"
+            end
+        end
+
+        puts correct_guess
+        puts computer_guess
+    
+    end
+
 end
 
 
@@ -77,22 +122,7 @@ class Player
 end
 
 
-class Board
-    
-    @@board_design = [[1234],
-                      [1234],
-                      [1234],
-                      [1234],
-                      [1234],
-                      [1234],
-                      [1234],
-                      [1234],
-                      [1234],
-                      [1234],
-                      [1234],
-                      [1234]]
 
-end
 
 class Code
     # The code consists of 4 digits, each digit ranging from 1-6.
@@ -103,7 +133,7 @@ class Code
         puts "Please choose the secret code, it must be 4 digits ranging from 1 to 6"
         puts "please inser the first digit"
 
-        # runs until we have a 4 key code 
+        # runs until we have a 4 digit key code 
         while @@secret_code.size < 4
             puts "please insert a digit, please note that it need to be from 1 to 6" 
             digit = gets.chomp.to_i
@@ -115,6 +145,7 @@ class Code
                 puts "the #{digit} is not in the range of 1 to 6"
             end
         end
+        return @@secret_code
     end
 
     # method to give a guess, should return a array
@@ -151,28 +182,31 @@ until choice == "code" || choice == "breaker"
     choice = gets.chomp
     if choice == "code"
         # will let player chose the secret code
-        Code.choosing_secret_code()
+        player_code = Code.choosing_secret_code()
+
+        
+
+        Computer.play(player_code)
+
     elsif choice == "breaker"
         puts "You will never find out my secret code ahahahahahaha"
         computer_secret_code = Computer.code_creation()
+
+        for i in 0..12
+            player_guess_code = Code.guessing_code()
+            Player.play(computer_secret_code, player_guess_code)
+        
+            if computer_secret_code == player_guess_code
+                puts "You have won the secret code was #{computer_secret_code}"
+                break
+            end
+        end
     else
         puts "I do not understand your choice, please insert code to set the code, or breaker to break the code"
     end
 end
 # You first choose to be either the code MAKER or code BREAKER.
 
-for i in 0..12
-     
-    player_guess_code = Code.guessing_code()
-    Player.play(computer_secret_code, player_guess_code)
 
-    if computer_secret_code == player_guess_code
-        puts "You have won the secret code was #{computer_secret_code}"
-        break
-    end
-      
-    
-
-end
 
 # now i need to loop the code above, for 12 plays.
