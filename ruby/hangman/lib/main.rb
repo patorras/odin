@@ -39,7 +39,7 @@ class Board
   end
 
   def self.update_board(board, word, guess)
-
+    
     word.chars.each_with_index do |char, index|
       if char == guess
         board[index] = char
@@ -48,6 +48,8 @@ class Board
 
     return board
   end
+
+  
 
 end
 
@@ -64,31 +66,54 @@ Board.print_board(empty_spaces)
 
 
 
-
-
-
-
 counter = 0
+correct_letters = []
+incorrect_letters = []
+
 
 while empty_spaces.include?("_") 
 
   puts "Please choose a letter and press enter"
   guess = gets.chomp
 
+  if secret_word.include?(guess)
+    correct_letters << guess
+  else
+    incorrect_letters << guess
+    counter += 1
+    puts "You have more #{10 - counter} tries"
+  end
 
+
+
+
+
+  puts "Correct letters choosen: "
+  correct_letters.each {|letter| print letter}
+  puts "\n"
+
+  puts "Incorrect letters choosen: "
+  incorrect_letters.each {|letter| print letter}
+  puts "\n"
 
   Board.update_board(empty_spaces, secret_word, guess)  
   Board.print_board(empty_spaces)
 
-  counter += 1
+  puts "#############################################################"
+
+
+
   if counter == 10
     puts "You LOST"
     break
   end
+
+  
+
   
 end
 # convert secret word to array
-puts counter
+
 puts secret_word
 
 
