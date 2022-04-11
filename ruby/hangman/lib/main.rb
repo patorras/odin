@@ -45,7 +45,7 @@ class Board
         board[index] = char
       end
     end
-
+    
     return board
   end
 
@@ -74,7 +74,7 @@ incorrect_letters = []
 while empty_spaces.include?("_") 
 
   puts "Please choose a letter and press enter"
-  guess = gets.chomp
+  guess = gets.chomp.downcase
 
   if secret_word.include?(guess)
     correct_letters << guess
@@ -104,28 +104,32 @@ while empty_spaces.include?("_")
 
 
   if counter == 10
-    puts "You LOST"
+    puts "You LOST the correct word was #{secret_word}"
     break
   end
 
-  
+
 
   
 end
-# convert secret word to array
-
-puts secret_word
 
 
+# prints a winning message
+empty_spaces = empty_spaces.join() + "\n"
+if empty_spaces == secret_word
+  puts "Congratulations you won!! The word was indeed #{secret_word}"
+end
 
-# count incorrect guesses they have before the game ends.
 
-# display which correct letters have already been chosen
-#and their position in the word, e.g. _ r o g r a _ _ i n g
 
-# which incorrect letters have already been chosen.
 
-###############################################################
+
+
+
+
+
+
+
 
 # turn function
 
