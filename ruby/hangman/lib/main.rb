@@ -5,6 +5,32 @@ one of your saved games, which should jump you exactly back to where
 you were when you saved. Play on!
 
 =end
+require "json"
+require "yaml"
+
+
+#################################################################
+class Game_session
+  attr_accessor :secret_word, :board, :tries
+
+  def initialize(secret_word, board, tries)
+    @secret_word = secret_word
+    @board = board
+    @tries = tries
+  end
+
+  def dump_info()
+    YAML.dump(self)
+  end
+
+  def self.deserialize(yaml_string)
+    YAML.load(yaml_string, permitted_classes:[Game_session])
+  end
+
+
+
+end
+#################################################################
 
 #################################################################
 def new_secret_word()
@@ -120,7 +146,16 @@ if empty_spaces == secret_word
   puts "Congratulations you won!! The word was indeed #{secret_word}"
 end
 
+game_session = Game_session.new(secret_word, empty_spaces, counter)
 
+p game_session
+
+
+fname = "sample.json"
+some_file = File.open(fname, "w")
+game = game_session.dump_info
+some_file.puts game
+some_file.close
 
 
 

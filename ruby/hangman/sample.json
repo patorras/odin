@@ -1,0 +1,8 @@
+--- !ruby/object:Game_session
+secret_word: 'solving
+
+  '
+board: '_______
+
+  '
+tries: 10
