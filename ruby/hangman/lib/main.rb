@@ -5,6 +5,9 @@ one of your saved games, which should jump you exactly back to where
 you were when you saved. Play on!
 
 =end
+
+
+
 require "json"
 require "yaml"
 
@@ -19,13 +22,22 @@ class Game_session
     @tries = tries
   end
 
-  def dump_info()
-    YAML.dump(self)
+  def save_to_json()
+    hash = {}
+    hash[:secret_word] = @secret_word
+    hash[:board] = @board
+    hash[:tries] = @tries
+
+    return hash.to_json
   end
 
-  def self.deserialize(yaml_string)
-    YAML.load(yaml_string, permitted_classes:[Game_session])
+  def self.load_json_file()
+    file = File.open("sample.json", "r")
+    data = JSON.load(file)
+    @tries = data["tries"]
+    p @tries = data
   end
+
 
 
 
@@ -48,7 +60,7 @@ def new_secret_word()
   end
 
   # randomly select a word 
-  return word[rand(0..word.length)]
+  return word[rand(0..word.length)].delete_suffix("\n")
 end
 #################################################################
 
@@ -99,11 +111,27 @@ incorrect_letters = []
 
 while empty_spaces.include?("_") 
 
-  puts "Please choose a letter and press enter"
+  puts "Please choose a letter and press enter, if you want to save the game do it by typing save"
   guess = gets.chomp.downcase
+
+  # saves game
+  if guess == "save"
+    game_session = Game_session.new(secret_word, empty_spaces, counter)
+
+    fname = "sample.json"
+    some_file = File.open(fname, "w")
+    game = game_session.save_to_json
+    some_file.puts game
+    some_file.close
+  end
 
   if secret_word.include?(guess)
     correct_letters << guess
+  elsif guess == "save"
+    puts "Game was save"
+    next
+  elsif guess == "load"
+    Game_session.load_json_file()
   else
     incorrect_letters << guess
     counter += 1
@@ -133,29 +161,18 @@ while empty_spaces.include?("_")
     puts "You LOST the correct word was #{secret_word}"
     break
   end
-
-
-
   
 end
 
 
+
 # prints a winning message
-empty_spaces = empty_spaces.join() + "\n"
+empty_spaces = empty_spaces.join()
 if empty_spaces == secret_word
   puts "Congratulations you won!! The word was indeed #{secret_word}"
 end
 
-game_session = Game_session.new(secret_word, empty_spaces, counter)
 
-p game_session
-
-
-fname = "sample.json"
-some_file = File.open(fname, "w")
-game = game_session.dump_info
-some_file.puts game
-some_file.close
 
 
 

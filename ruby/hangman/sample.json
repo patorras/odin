@@ -1,8 +1,1 @@
---- !ruby/object:Game_session
-secret_word: 'solving
-
-  '
-board: '_______
-
-  '
-tries: 10
+{"secret_word":"yeast","board":["_","e","a","_"],"tries":0}
