@@ -1,1 +1,0 @@
-"Ogre: [strength = 47, speed = 3]"

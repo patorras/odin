@@ -1,25 +1,17 @@
-=begin
-
-When the program first loads, add in an option that allows you to open 
-one of your saved games, which should jump you exactly back to where 
-you were when you saved. Play on!
-
-=end
-
-
-
 require "json"
-require "yaml"
+
 
 
 #################################################################
 class Game_session
-  attr_accessor :secret_word, :board, :tries
+  attr_accessor :secret_word, :board, :tries, :correct_letters, :incorrect_letters
 
-  def initialize(secret_word, board, tries)
+  def initialize(secret_word, board, tries, correct_letters, incorrect_letters)
     @secret_word = secret_word
     @board = board
     @tries = tries
+    @correct_letters = correct_letters
+    @incorrect_letters = incorrect_letters
   end
 
   def save_to_json()
@@ -27,18 +19,19 @@ class Game_session
     hash[:secret_word] = @secret_word
     hash[:board] = @board
     hash[:tries] = @tries
+    hash[:correct_letters] = @correct_letters
+    hash[:incorrect_letters] = @incorrect_letters
 
     return hash.to_json
   end
 
-  def self.load_json_file()
+  def self.load_json_file(variable_to_load)
     file = File.open("sample.json", "r")
     data = JSON.load(file)
-    @tries = data["tries"]
-    p @tries = data
+    variable = data[variable_to_load]
+    file.close()
+    return variable
   end
-
-
 
 
 end
@@ -56,10 +49,10 @@ def new_secret_word()
      if row.length > 5 && row.length < 12
       word << row
      end
-    
+
   end
 
-  # randomly select a word 
+  # randomly select a word
   return word[rand(0..word.length)].delete_suffix("\n")
 end
 #################################################################
@@ -67,7 +60,7 @@ end
 class Board
 
   def self.create_empty_board(word)
-    empty_spaces = Array.new((word.length-1), "_")
+    empty_spaces = Array.new((word.length), "_")
     return empty_spaces
   end
 
@@ -77,24 +70,24 @@ class Board
   end
 
   def self.update_board(board, word, guess)
-    
+
     word.chars.each_with_index do |char, index|
       if char == guess
         board[index] = char
       end
     end
-    
+
     return board
   end
 
-  
+
 
 end
 
 
 secret_word = new_secret_word()
 
-# create the empty spaces for the letters and 
+# create the empty spaces for the letters and
 empty_spaces = Board.create_empty_board(secret_word)
 
 
@@ -109,20 +102,22 @@ correct_letters = []
 incorrect_letters = []
 
 
-while empty_spaces.include?("_") 
+while empty_spaces.include?("_")
 
-  puts "Please choose a letter and press enter, if you want to save the game do it by typing save"
+  puts "Please choose a letter and press enter"
+  puts "if you want to save the game do it by typing save"
+  puts "if you want to load the game do it by typing load"
   guess = gets.chomp.downcase
 
   # saves game
   if guess == "save"
-    game_session = Game_session.new(secret_word, empty_spaces, counter)
+    game_session = Game_session.new(secret_word, empty_spaces, counter, correct_letters, incorrect_letters)
 
     fname = "sample.json"
     some_file = File.open(fname, "w")
     game = game_session.save_to_json
     some_file.puts game
-    some_file.close
+    some_file.close    
   end
 
   if secret_word.include?(guess)
@@ -131,7 +126,16 @@ while empty_spaces.include?("_")
     puts "Game was save"
     next
   elsif guess == "load"
-    Game_session.load_json_file()
+    secret_word = Game_session.load_json_file("secret_word")
+    empty_spaces = Game_session.load_json_file("board")
+    tries = Game_session.load_json_file("tries")
+    incorrect_letters = Game_session.load_json_file("incorrect_letters")
+    correct_letters = Game_session.load_json_file("correct_letters")
+    if tries == 0
+      counter = 0
+      else
+      counter = 10 - tries
+    end
   else
     incorrect_letters << guess
     counter += 1
@@ -150,7 +154,7 @@ while empty_spaces.include?("_")
   incorrect_letters.each {|letter| print letter}
   puts "\n"
 
-  Board.update_board(empty_spaces, secret_word, guess)  
+  Board.update_board(empty_spaces, secret_word, guess)
   Board.print_board(empty_spaces)
 
   puts "#############################################################"
@@ -161,7 +165,7 @@ while empty_spaces.include?("_")
     puts "You LOST the correct word was #{secret_word}"
     break
   end
-  
+
 end
 
 
@@ -192,7 +196,7 @@ player to make a guess of a letter
 
 case insensitive
 
-Update the display 
+Update the display
 
 if out of guesses, {
 the player should lose.
@@ -202,7 +206,7 @@ if the letter was correct{
   show their position in the word
   display which correct letters have already been chosen;
 }
-else if 
+else if
   update incorrect letters have already been chosen
 
 =end
@@ -216,4 +220,3 @@ the player should  have the option to save the game
 
 serialize your game class too!
 =end
-
