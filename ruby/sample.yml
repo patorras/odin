@@ -1,0 +1,5 @@
+--- !ruby/object:Ogre
+strength: 60
+speed: 3
+smell: strong
+hello
